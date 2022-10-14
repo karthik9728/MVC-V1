@@ -1,4 +1,8 @@
 
+using BulkuBook.DataAccess.Repository;
+using BulkuBook.DataAccess.Repository.IRepository;
+using BulkuBook.DataAccess.UnitOfWork;
+using BulkuBook.DataAccess.UnitOfWork.Interface;
 using BulkyBook.DataAccess;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,6 +20,12 @@ builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 #region Database Configuration
 
 builder.Services.AddDbContext<ApplicationDbContext>(options=>options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+#endregion
+
+#region Adding Service 
+
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 #endregion
 
