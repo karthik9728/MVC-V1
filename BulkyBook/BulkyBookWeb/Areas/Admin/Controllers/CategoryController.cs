@@ -4,7 +4,7 @@ using BulkyBook.DataAccess;
 using BulkyBook.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BulkyBookWeb.Controllers
+namespace BulkyBookWeb.Areas.Admin.Controllers
 {
     public class CategoryController : Controller
     {
@@ -55,7 +55,7 @@ namespace BulkyBookWeb.Controllers
                 return NotFound();
             }
 
-            var categoryFromDb = _unitOfWork.Category.GetFirtsOrDefault(x=>x.Id == id);
+            var categoryFromDb = _unitOfWork.Category.GetFirtsOrDefault(x => x.Id == id);
 
             if (categoryFromDb == null)
             {
@@ -104,7 +104,7 @@ namespace BulkyBookWeb.Controllers
         }
 
         //POST
-        [HttpPost,ActionName("Delete")]
+        [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public IActionResult DeletePOST(int? id)
         {
