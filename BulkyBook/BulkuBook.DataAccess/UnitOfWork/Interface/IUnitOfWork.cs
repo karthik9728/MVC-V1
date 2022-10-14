@@ -11,6 +11,8 @@ namespace BulkuBook.DataAccess.UnitOfWork.Interface
     {
         ICategoryRepository Category{ get; }
 
+        ICoverTypeRepository CoverType{ get; }
+
         void Save();
     }
 }
